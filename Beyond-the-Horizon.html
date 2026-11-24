@@ -1,0 +1,633 @@
+<!doctype html><html lang="zh-Hant"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="theme-color" content="#172b29"><title>Beyond the Horizon | 無盡之境</title><style>:root{font-family:system-ui,"Microsoft JhengHei",sans-serif;color:#f4f1df;background:#a7c7cc;font-synthesis:none;--mint:#c8e6a4;--muted:#a6bdb4}*{box-sizing:border-box}body{margin:0;overflow:hidden}button,input,select{font:inherit}button{cursor:pointer;color:inherit;border:1px solid #ffffff24;background:#ffffff0b;border-radius:8px;padding:11px 15px;transition:background .15s}button:hover{background:#ffffff25}button:focus-visible,input:focus-visible,select:focus-visible{outline:2px solid #d3e9a4;outline-offset:3px}button:disabled{opacity:.5;cursor:wait}[hidden]{display:none!important}#view,#vignette{position:fixed;inset:0;width:100%;height:100%}#vignette{pointer-events:none;background:radial-gradient(ellipse at center,transparent 48%,#10242330 100%)}.overlay{position:fixed;inset:0;overflow:auto;display:flex;align-items:center;background:linear-gradient(90deg,#101e1de8 0%,#142a28c9 37%,#14282524 90%);padding:clamp(24px,5vw,84px)}.menu-wrap{width:min(540px,100%);max-height:100%;margin:auto 0}.eyebrow,.kicker,footer,.version{font-family:ui-monospace,monospace;font-size:10px;letter-spacing:1.8px;color:#c1d7bc}.eyebrow{display:flex;align-items:center;gap:8px}.dot{width:8px;height:8px;background:#c8e6a4;border-radius:50%;box-shadow:0 0 12px #a9df8e}.version{margin-left:auto;opacity:.65}.hero{margin:clamp(22px,4vh,56px) 0 24px}.kicker{color:#b0c2a7;font-size:10px}h1{font-family:Georgia,serif;font-weight:400;letter-spacing:-.055em;font-size:clamp(58px,8vw,100px);line-height:.91;margin:15px 0}h1 em{font-weight:400;color:#d4e7bd}h1 span{color:#e6bd80}.subtitle{letter-spacing:8px;font-size:16px;color:#d5e2c2;margin:20px 0}.hero p{font-size:14px;line-height:1.9;color:#b8c9bd}.panel{max-width:390px;background:#172b27e8;border:1px solid #b7d3ba33;padding:19px;border-radius:13px;box-shadow:0 20px 60px #13282230}.panel-title{display:flex;align-items:center;justify-content:space-between;font-weight:600;margin-bottom:18px}.tag{font-size:10px;padding:4px 8px;border:1px solid #a7c6a64d;color:#c4dcb1;border-radius:20px}label{display:flex;align-items:center;justify-content:space-between;font-size:13px;color:#dbe8d5;margin:12px 0 7px}label small{font-size:10px;color:#9bb6a9}.seedrow{display:flex;gap:7px}.seedrow input,select{background:#0f201e;color:#f0f0db;border:1px solid #ffffff2e;padding:10px;border-radius:7px;min-width:0;flex:1;width:100%}.seedrow button{font-size:21px;padding:4px 14px}.primary{background:#d4e7b1;color:#203428;border:0;font-weight:750;width:100%;margin-top:13px;padding:13px 16px;text-align:left;display:flex;justify-content:space-between}.primary:hover{background:#e5f2c8}.actions{display:flex;gap:8px;margin-top:9px}.actions button{flex:1;font-size:12px;padding:8px 6px}footer{display:flex;justify-content:space-between;max-width:420px;margin:22px 0 0;font-size:9px;letter-spacing:1px}#error{color:#ffb3a2;font-size:12px;margin-top:8px}.glass{background:#152b27c7;border:1px solid #d7e8d12b;border-radius:8px;box-shadow:0 3px 15px #152b2724}.top{position:fixed;top:20px;left:22px;right:22px;display:flex;justify-content:space-between;align-items:center;pointer-events:none}.top button{pointer-events:auto}.brand{display:flex;align-items:center;gap:10px;text-shadow:0 2px 3px #142a28;font-size:12px;font-weight:700;letter-spacing:1.2px}.brand i{width:26px;height:26px;background:#cce2ab;clip-path:polygon(0 100%,38% 15%,54% 49%,70% 0,100% 100%,70% 68%,55% 85%,38% 52%)}.brand small{display:block;font-size:10px;color:#f0f3da;letter-spacing:1px;margin-top:4px;font-weight:400}#stats{position:fixed;left:22px;top:76px;padding:11px 14px;font:11px/1.65 ui-monospace,monospace;white-space:pre;pointer-events:none;color:#e5efd8}#compass{position:fixed;top:20px;left:50%;transform:translateX(-50%);padding:7px 19px;font-size:12px;letter-spacing:3px;pointer-events:none}#cross{position:fixed;left:50%;top:50%;width:18px;height:18px;transform:translate(-50%,-50%);pointer-events:none;filter:drop-shadow(0 1px 1px #1b302e)}#cross:before,#cross:after{content:"";position:absolute;background:#fffde9;border-radius:1px}#cross:before{width:2px;height:16px;left:8px;top:1px}#cross:after{height:2px;width:16px;top:8px;left:1px}#target{position:fixed;left:50%;top:calc(50% + 17px);transform:translateX(-50%);font-size:11px;text-shadow:0 1px 3px #000;pointer-events:none}#bottom{position:fixed;bottom:22px;left:50%;transform:translateX(-50%);text-align:center;white-space:nowrap}#selected{display:inline-block;background:#142a25c9;padding:5px 16px;border-radius:20px;font-size:12px;margin-bottom:9px}#hotbar{display:flex;gap:5px;background:#162923c9;padding:7px;border:1px solid #eef7df40;border-radius:11px}.slot{position:relative;display:flex;align-items:center;justify-content:center;width:49px;height:49px;border:1px solid #fff3;background:#20352e;border-radius:6px;padding:0}.slot.active{border:2px solid #d5e8a3;background:#6e865b66;box-shadow:0 0 12px #d5e8a34d}.slot canvas{width:29px;height:29px;image-rendering:pixelated;box-shadow:3px 4px 0 #0d191c88;transform:rotate(-5deg)}.slot b{position:absolute;top:2px;left:5px;font:10px monospace;color:#e9f0d5}.hints{font-size:10px;color:#f4f5e6;text-shadow:0 1px 4px #000;margin-top:9px}#notice{position:fixed;top:80px;left:50%;transform:translateX(-50%);background:#17312adb;padding:8px 14px;border-radius:8px;font-size:12px;opacity:0;transition:opacity .2s;pointer-events:none}#notice.on{opacity:1}dialog{width:min(430px,calc(100% - 30px));border-radius:14px;border:1px solid #92b19b50;background:#192d28;color:#eaf1de;padding:24px;box-shadow:0 20px 80px #0005}dialog::backdrop{background:#081a17aa}dialog h2{font-weight:600;margin:0 0 12px}dialog p{font-size:13px;line-height:1.7;color:#b4c6b7}dialog input[type=range]{width:100%;accent-color:#c8e6a4}.scale{display:flex;justify-content:space-between;font-size:10px;color:#a6bdb4}.toggle{justify-content:flex-start;gap:8px;margin-top:18px}.toggle input{accent-color:#c8e6a4}.fixed{font-size:11px;color:#a6bdb4;margin:15px 0}.controls{display:grid;gap:10px;font-size:13px}kbd{display:inline-block;min-width:78px;background:#0d211c;border:1px solid #ffffff30;border-radius:4px;padding:3px 6px;color:#d9e8b9;font:11px monospace;margin-right:9px} @media(max-height:650px){.hero{margin:18px 0}.hero h1{font-size:58px}.hero p{margin:8px 0}.subtitle{margin:12px 0}footer{margin:12px 0}.overlay{padding:20px 5vw}}@media(max-width:530px){#hotbar{gap:3px;padding:4px}.slot{width:38px;height:42px}.hints{font-size:8px}.eyebrow{letter-spacing:.5px}.version{display:none}#stats{font-size:9px}.brand{font-size:10px}#compass{display:none}}
+</style></head><body>
+<canvas id="view" aria-label="3D 遊戲世界"></canvas><div id="vignette"></div>
+<div id="hud" hidden><div class="top"><div class="brand"><i></i><span>BEYOND THE HORIZON<small>無盡之境 · 自由探索</small></span></div><button id="pause" class="glass">Ⅱ 暫停</button></div><div id="stats" class="glass"></div><div id="compass" class="glass">N · 北</div><div id="cross"></div><div id="target"></div><div id="notice" role="status"></div><div id="bottom"><div id="selected"></div><div id="hotbar"></div><div class="hints">WASD 移動　 SPACE 跳躍　 SHIFT 奔跑　 左鍵破壞 / 右鍵放置</div></div></div>
+<main id="menu" class="overlay"><div class="menu-wrap"><div class="eyebrow"><span class="dot"></span> PROCEDURAL VOXEL EXPLORATION <span class="version">01 / SANDBOX</span></div><div class="hero"><div class="kicker">THE WORLD IS YOURS TO DISCOVER.</div><h1>Beyond the<br><em>Horizon<span>.</span></em></h1><div class="subtitle">無 盡 之 境</div><p>越過森林與海岸，向未知的地平線前進。<br>每一個世界，都從一顆種子開始。</p></div><section class="panel"><div class="panel-title"><span id="menu-label">開啟你的旅程</span><span class="tag">自由模式</span></div><label for="seed">世界種子 <small>相同種子，重現相同世界</small></label><div class="seedrow"><input id="seed" value="horizon-08" maxlength="80" autocomplete="off"><button id="random" title="隨機種子">⟳</button></div><button id="play" class="primary">開始探索 <span>→</span></button><div class="actions"><button id="newworld" hidden>新世界</button><button id="settings">畫質設定</button><button id="help">操作指南</button></div><div id="error" role="alert"></div></section><footer><span>低硬體需求 · 無限地形串流</span><span>PHASE 01 / PROTOTYPE</span></footer></div></main>
+<dialog id="settingsDialog"><h2>畫質設定</h2><p>為低階硬體提供輕量渲染。調整後即時生效。</p><label for="radius">區塊半徑 <output id="radOut">2</output></label><input type="range" id="radius" min="1" max="4" step="1" value="2"><div class="scale"><span>9 區塊</span><span>81 區塊</span></div><label for="quality">渲染解析度</label><select id="quality"><option value="0.5">極低 · 50%</option><option value="0.75">低 · 75%</option><option value="1" selected>標準 · 100%</option></select><label class="toggle"><input type="checkbox" id="showstats" checked> 顯示效能資訊</label><div class="fixed">即時陰影、抗鋸齒及後處理：關閉</div><button class="primary close">完成</button></dialog>
+<dialog id="helpDialog"><h2>探索指南</h2><div class="controls"><span><kbd>W A S D</kbd> 移動</span><span><kbd>滑鼠</kbd> 環顧</span><span><kbd>SPACE</kbd> 跳躍 / 游泳上浮</span><span><kbd>SHIFT</kbd> 奔跑</span><span><kbd>左鍵</kbd> 破壞方塊</span><span><kbd>右鍵</kbd> 放置方塊</span><span><kbd>1 – 7</kbd> / 滾輪 選方塊</span><span><kbd>ESC</kbd> 暫停 / 解除滑鼠鎖定</span></div><p>可破壞、放置無限供應的方塊；世界修改在本次遊戲內保留，尚未提供永久存檔。最底層不可破壞。</p><button class="primary close">了解</button></dialog>
+<script>(()=>{const modules=Object.create(null),cache=Object.create(null);
+modules["./game.js"]=function(require,module,exports){
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.start = start;
+const world_js_1 = require("./world.js");
+const mesh_js_1 = require("./mesh.js");
+const physics_js_1 = require("./physics.js");
+const $ = (id) => document.getElementById(id);
+const input = (id) => $(id);
+function start(factory) {
+    const canvas = $('view'), menu = $('menu'), hud = $('hud'), play = $('play'), seed = input('seed'), newworld = $('newworld');
+    let renderer;
+    try {
+        renderer = factory(canvas);
+    }
+    catch (e) {
+        $('error').textContent = String(e);
+        play.disabled = true;
+        return;
+    }
+    let world = new world_js_1.World((0, world_js_1.seedOf)(seed.value)), player = new physics_js_1.Player(), radius = 2, ratio = 1, selected = 1, playing = false, started = false, ready = false, hit = null, metrics = { calls: 0, triangles: 0, bytes: 0 }, acc = 0, noticeUntil = 0, frames = 0, fps = 0, frameMs = 0, lastStat = performance.now(), last = lastStat, lastJob = 0, maxJob = 0, preview = true, targets = world.target(0, 0, radius), targetKey = '', lastHitName = '';
+    const keys = new Set();
+    const show = (s) => { $('notice').textContent = s; $('notice').classList.add('on'); noticeUntil = performance.now() + 2000; };
+    const resize = () => renderer.resize(innerWidth, innerHeight, Math.min(1, devicePixelRatio || 1) * ratio);
+    addEventListener('resize', resize);
+    resize();
+    function reset(s) { for (const k of world.chunks.keys())
+        renderer.remove(k); world = new world_js_1.World((0, world_js_1.seedOf)(s)); player = new physics_js_1.Player(); const choices = [[0, 0]]; for (let r = 4; r <= 32; r += 4)
+        for (let dz = -r; dz <= r; dz += 4)
+            for (let dx = -r; dx <= r; dx += 4)
+                if (Math.max(Math.abs(dx), Math.abs(dz)) === r)
+                    choices.push([dx, dz]); const candidates = new Map(); let loc = choices[0]; for (const [x, z] of choices) {
+        const h = (0, world_js_1.elevation)(x, z, world.seed);
+        if (h <= world_js_1.SEA || h > world_js_1.HEIGHT - 4)
+            continue;
+        const cx = (0, world_js_1.chunkCoord)(x), cz = (0, world_js_1.chunkCoord)(z), k = (0, world_js_1.key)(cx, cz);
+        let c = candidates.get(k);
+        if (!c) {
+            c = (0, world_js_1.generate)(cx, cz, world.seed);
+            candidates.set(k, c);
+        }
+        const lx = x - cx * world_js_1.SIZE, lz = z - cz * world_js_1.SIZE;
+        if (c.blocks[(0, world_js_1.index)(lx, h + 1, lz)] === 0 /* B.Air */ && c.blocks[(0, world_js_1.index)(lx, h + 2, lz)] === 0 /* B.Air */) {
+            loc = [x, z];
+            break;
+        }
+    } let [x, z] = loc; world.load((0, world_js_1.chunkCoord)(x), (0, world_js_1.chunkCoord)(z)); player.pos = { x: x + .5, y: Math.max(world_js_1.SEA, (0, world_js_1.elevation)(x, z, world.seed)) + 1, z: z + .5 }; while ((0, physics_js_1.collides)(world, player.pos) && player.pos.y < world_js_1.HEIGHT + 1)
+        player.pos.y++; player.pitch = -.08; let best = Infinity; player.yaw = .72; for (let j = 0; j < 16; j++) {
+        const angle = j * Math.PI / 8, h = (0, world_js_1.elevation)(x - Math.round(22 * Math.sin(angle)), z - Math.round(22 * Math.cos(angle)), world.seed);
+        if (h < best) {
+            best = h;
+            player.yaw = angle;
+        }
+    } targetKey = ''; ready = false; acc = 0; hit = null; preview = true; updateTargets(); }
+    function updateTargets() { const cx = (0, world_js_1.chunkCoord)(player.pos.x), cz = (0, world_js_1.chunkCoord)(player.pos.z), k = `${cx},${cz},${radius}`; if (k === targetKey)
+        return; targetKey = k; ready = false; targets = world.target(player.pos.x, player.pos.z, radius); const want = new Set(targets.map(t => (0, world_js_1.key)(t.cx, t.cz))); for (const [k, c] of world.chunks) {
+        if (!want.has(k)) {
+            renderer.remove(k);
+            world.unload(c.cx, c.cz);
+        }
+    } }
+    function work() { const t = performance.now(); const missing = targets.find(a => !world.chunks.has((0, world_js_1.key)(a.cx, a.cz))); if (missing)
+        world.load(missing.cx, missing.cz);
+    else if (world.dirty.size) {
+        let k = targets.map(a => (0, world_js_1.key)(a.cx, a.cz)).find(k => world.dirty.has(k));
+        if (k) {
+            world.dirty.delete(k);
+            const c = world.chunks.get(k);
+            if (c)
+                renderer.put(k, (0, mesh_js_1.meshChunk)(world, c));
+        }
+    } lastJob = performance.now() - t; maxJob = Math.max(maxJob, lastJob); ready = targets.every(t => world.chunks.has((0, world_js_1.key)(t.cx, t.cz))) && world.dirty.size === 0; }
+    const tiles = [0, 2, 3, 4, 5, 7, 8], a = (0, mesh_js_1.atlas)();
+    for (let i = 1; i <= 7; i++) {
+        const b = document.createElement('button');
+        b.className = 'slot';
+        b.title = world_js_1.NAMES[i];
+        b.setAttribute('aria-label', world_js_1.NAMES[i]);
+        const n = document.createElement('b');
+        n.textContent = String(i);
+        const c = document.createElement('canvas');
+        c.width = c.height = 16;
+        c.getContext('2d').drawImage(a, tiles[i - 1] * 16, 0, 16, 16, 0, 0, 16, 16);
+        b.append(n, c);
+        b.addEventListener('mousedown', e => e.stopPropagation());
+        b.onclick = () => choose(i);
+        $('hotbar').append(b);
+    }
+    function choose(n) { selected = ((n - 1 + 7) % 7) + 1; Array.from($('hotbar').children).forEach((x, i) => x.classList.toggle('active', i + 1 === selected)); $('selected').textContent = `${world_js_1.NAMES[selected]} · ∞`; }
+    ;
+    choose(1);
+    function pause() { playing = false; keys.clear(); hud.hidden = true; menu.hidden = false; $('menu-label').textContent = '旅程暫停'; play.innerHTML = '繼續探索 <span>→</span>'; newworld.hidden = false; seed.disabled = true; $('random').disabled = true; }
+    function lock() { try {
+        const p = canvas.requestPointerLock();
+        if (p && typeof p.catch === 'function')
+            p.catch(() => { $('error').textContent = '無法鎖定滑鼠，請再次點擊開始。'; });
+    }
+    catch {
+        $('error').textContent = '瀏覽器不支援滑鼠鎖定。';
+    } }
+    play.onclick = () => { if (!started) {
+        if (world.seed !== (0, world_js_1.seedOf)(seed.value))
+            reset(seed.value);
+        started = true;
+    } lock(); };
+    newworld.onclick = () => { if (!confirm('開始新世界會清除目前的方塊修改，確定嗎？'))
+        return; started = false; seed.disabled = false; $('random').disabled = false; newworld.hidden = true; play.innerHTML = '開始探索 <span>→</span>'; $('menu-label').textContent = '開啟你的旅程'; reset(seed.value); };
+    $('random').onclick = () => { seed.value = 'horizon-' + Math.random().toString(36).slice(2, 9); reset(seed.value); };
+    seed.addEventListener('change', () => { if (!started)
+        reset(seed.value); });
+    $('pause').onclick = () => document.exitPointerLock();
+    document.addEventListener('pointerlockchange', () => { if (document.pointerLockElement === canvas) {
+        playing = true;
+        preview = false;
+        menu.hidden = true;
+        hud.hidden = false;
+        keys.clear();
+        $('error').textContent = '';
+    }
+    else if (started)
+        pause(); });
+    document.addEventListener('pointerlockerror', () => { $('error').textContent = '滑鼠鎖定失敗；請再次點擊開始。'; });
+    addEventListener('blur', () => { keys.clear(); if (playing)
+        document.exitPointerLock(); });
+    document.addEventListener('mousemove', e => { if (!playing)
+        return; player.yaw = (player.yaw - e.movementX * .0024) % (Math.PI * 2); player.pitch = Math.max(-1.53, Math.min(1.53, player.pitch - e.movementY * .0024)); });
+    document.addEventListener('keydown', e => { if (!playing)
+        return; if (['KeyW', 'KeyA', 'KeyS', 'KeyD', 'Space', 'ShiftLeft', 'ShiftRight'].includes(e.code)) {
+        e.preventDefault();
+        keys.add(e.code);
+    } if (/^Digit[1-7]$/.test(e.code))
+        choose(Number(e.code.slice(-1))); });
+    document.addEventListener('keyup', e => keys.delete(e.code));
+    document.addEventListener('wheel', e => { if (playing) {
+        e.preventDefault();
+        choose(selected + (e.deltaY > 0 ? 1 : -1));
+    } }, { passive: false });
+    document.addEventListener('contextmenu', e => { if (playing)
+        e.preventDefault(); });
+    function modify(button) { hit = (0, physics_js_1.ray)(world, player.eye(), player.direction()); if (!hit)
+        return false; if (button === 0) {
+        if (hit.y === 0) {
+            show('基岩不可破壞');
+            return false;
+        }
+        const ok = world.set(hit.x, hit.y, hit.z, 0 /* B.Air */);
+        if (!ok)
+            show('修改失敗（可能已達上限）');
+        else
+            ready = false;
+        return ok;
+    } if (button === 2) {
+        const p = hit.prev;
+        if ((0, physics_js_1.overlaps)(player.pos, p.x, p.y, p.z)) {
+            show('不能將方塊放在自己身上');
+            return false;
+        }
+        const b = world.get(p.x, p.y, p.z);
+        if (b !== 0 /* B.Air */ && b !== 7 /* B.Water */)
+            return false;
+        const ok = world.set(p.x, p.y, p.z, selected);
+        if (!ok)
+            show('無法放置（世界邊界或修改上限）');
+        else
+            ready = false;
+        return ok;
+    } return false; }
+    canvas.addEventListener('mousedown', e => { if (playing && (e.button === 0 || e.button === 2)) {
+        e.preventDefault();
+        modify(e.button);
+    } });
+    for (const [b, d] of [['settings', 'settingsDialog'], ['help', 'helpDialog']]) {
+        $(b).onclick = () => $(d).showModal();
+    }
+    document.querySelectorAll('dialog .close').forEach(b => b.onclick = () => b.closest('dialog').close());
+    input('radius').oninput = () => { radius = Number(input('radius').value); $('radOut').textContent = String(radius); updateTargets(); };
+    $('quality').onchange = () => { ratio = Number($('quality').value); resize(); };
+    input('showstats').onchange = () => { $('stats').hidden = !input('showstats').checked; };
+    reset(seed.value);
+    function frame(now) {
+        const raw = (now - last) / 1000;
+        last = now;
+        const dt = Math.min(.05, Math.max(0, raw));
+        if (playing) {
+            acc += dt;
+            while (acc >= 1 / 120) {
+                player.step(world, 1 / 120, keys);
+                acc -= 1 / 120;
+            }
+            updateTargets();
+            hit = (0, physics_js_1.ray)(world, player.eye(), player.direction());
+        }
+        else {
+            acc = 0;
+            hit = null;
+        }
+        // One chunk job per frame. Prioritize mesh near the player once its 4 neighbors exist.
+        if (!ready) {
+            const first = targets.find(t => world.dirty.has((0, world_js_1.key)(t.cx, t.cz)) && [[1, 0], [-1, 0], [0, 1], [0, -1]].every(([x, z]) => world.chunks.has((0, world_js_1.key)(t.cx + x, t.cz + z)) || !targets.some(n => n.cx === t.cx + x && n.cz === t.cz + z)));
+            if (first) {
+                const t = performance.now(), k = (0, world_js_1.key)(first.cx, first.cz);
+                world.dirty.delete(k);
+                renderer.put(k, (0, mesh_js_1.meshChunk)(world, world.chunks.get(k)));
+                lastJob = performance.now() - t;
+                maxJob = Math.max(maxJob, lastJob);
+                ready = targets.every(t => world.chunks.has((0, world_js_1.key)(t.cx, t.cz))) && !world.dirty.size;
+            }
+            else
+                work();
+        }
+        else if (world.dirty.size) {
+            ready = false;
+            work();
+        }
+        let eye = player.eye(), dir = player.direction();
+        if (preview) {
+            const angle = now * .000025;
+            eye = { x: player.pos.x + Math.sin(angle) * 5, y: player.pos.y + 11, z: player.pos.z + Math.cos(angle) * 5 };
+            dir = { x: Math.sin(-player.yaw) * .82, y: -.42, z: -Math.cos(player.yaw) * .82 };
+            const l = Math.hypot(dir.x, dir.y, dir.z);
+            dir = { x: dir.x / l, y: dir.y / l, z: dir.z / l };
+        }
+        metrics = renderer.draw(eye, dir, hit, radius);
+        frames++;
+        if (now - lastStat >= 500) {
+            fps = frames * 1000 / (now - lastStat);
+            frameMs = (now - lastStat) / frames;
+            frames = 0;
+            lastStat = now;
+            const pos = player.pos;
+            $('stats').textContent = `${fps.toFixed(0)} FPS  ·  ${frameMs.toFixed(1)} ms\nXYZ  ${pos.x.toFixed(1)} / ${pos.y.toFixed(1)} / ${pos.z.toFixed(1)}\n區塊  ${world.chunks.size}/${targets.length}  ·  待更新 ${world.dirty.size}\nDraw  ${metrics.calls}  ·  Tri ${metrics.triangles.toLocaleString()}\nMesh  ${(metrics.bytes / 1048576).toFixed(1)} MiB\nJob   ${lastJob.toFixed(1)} / peak ${maxJob.toFixed(1)} ms\n${renderer.name}`;
+        }
+        if (playing) {
+            const name = hit ? world_js_1.NAMES[hit.block] : '';
+            if (name !== lastHitName) {
+                $('target').textContent = name;
+                lastHitName = name;
+            }
+            const deg = (((-player.yaw * 180 / Math.PI) % 360) + 360) % 360;
+            $('compass').textContent = ['N · 北', 'NE · 東北', 'E · 東', 'SE · 東南', 'S · 南', 'SW · 西南', 'W · 西', 'NW · 西北'][Math.round(deg / 45) % 8];
+        }
+        if (noticeUntil && now > noticeUntil) {
+            $('notice').classList.remove('on');
+            noticeUntil = 0;
+        }
+        requestAnimationFrame(frame);
+    }
+    // Read-only diagnostics for acceptance tests; no gameplay mutation API.
+    Object.defineProperty(window, 'horizonDiagnostics', { value: () => ({ fps, frameMs, playing, ready, seed: world.seed, position: { ...player.pos }, grounded: player.grounded, loaded: world.chunks.size, dirty: world.dirty.size, edits: world.editCount, changes: world.changes, center: [(0, world_js_1.chunkCoord)(player.pos.x), (0, world_js_1.chunkCoord)(player.pos.z)], metrics: { ...metrics }, maxJob, renderer: renderer.name, selected, hit: hit ? { ...hit } : null }), configurable: false });
+    requestAnimationFrame(frame);
+    canvas.addEventListener('webglcontextlost', e => { e.preventDefault(); if (document.pointerLockElement === canvas)
+        document.exitPointerLock(); play.disabled = true; $('error').textContent = 'WebGL 裝置已中斷，請重新整理頁面。'; });
+}
+
+};
+modules["./mesh.js"]=function(require,module,exports){
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.TILES = exports.TILE = void 0;
+exports.meshChunk = meshChunk;
+exports.atlas = atlas;
+const world_js_1 = require("./world.js");
+// CCW as viewed from the exterior; four vertices per visible face.
+const F = [{ d: [1, 0, 0], v: [[1, 0, 1], [1, 0, 0], [1, 1, 0], [1, 1, 1]], light: .82 }, { d: [-1, 0, 0], v: [[0, 0, 0], [0, 0, 1], [0, 1, 1], [0, 1, 0]], light: .70 }, { d: [0, 1, 0], v: [[0, 1, 1], [1, 1, 1], [1, 1, 0], [0, 1, 0]], light: 1 }, { d: [0, -1, 0], v: [[0, 0, 0], [1, 0, 0], [1, 0, 1], [0, 0, 1]], light: .56 }, { d: [0, 0, 1], v: [[0, 0, 1], [1, 0, 1], [1, 1, 1], [0, 1, 1]], light: .88 }, { d: [0, 0, -1], v: [[1, 0, 0], [0, 0, 0], [0, 1, 0], [1, 1, 0]], light: .76 }];
+exports.TILE = 16, exports.TILES = 10;
+function tile(b, f) { return b === 1 /* B.Grass */ ? f === 2 ? 0 : f === 3 ? 2 : 1 : b === 2 /* B.Dirt */ ? 2 : b === 3 /* B.Stone */ ? 3 : b === 4 /* B.Sand */ ? 4 : b === 5 /* B.Wood */ ? f === 2 || f === 3 ? 6 : 5 : b === 6 /* B.Leaves */ ? 7 : 8; }
+function meshChunk(w, c) {
+    const p = [], uv = [], co = [], ind = [], ox = c.cx * world_js_1.SIZE, oz = c.cz * world_js_1.SIZE;
+    let n = 0;
+    for (let y = 0; y < world_js_1.HEIGHT; y++)
+        for (let z = 0; z < world_js_1.SIZE; z++)
+            for (let x = 0; x < world_js_1.SIZE; x++) {
+                const b = c.blocks[(0, world_js_1.index)(x, y, z)];
+                if (!b)
+                    continue;
+                for (let f = 0; f < 6; f++) {
+                    const { d, v, light } = F[f], nx = x + d[0], ny = y + d[1], nz = z + d[2];
+                    const adj = ny < 0 ? 3 /* B.Stone */ : ny >= world_js_1.HEIGHT ? 0 /* B.Air */ : nx >= 0 && nx < world_js_1.SIZE && nz >= 0 && nz < world_js_1.SIZE ? c.blocks[(0, world_js_1.index)(nx, ny, nz)] : w.get(ox + nx, ny, oz + nz);
+                    if (adj !== 0 /* B.Air */ && (b === 7 /* B.Water */ || adj !== 7 /* B.Water */))
+                        continue;
+                    const t = tile(b, f), shade = light * (.92 + .08 * (0, world_js_1.hash)(ox + x, oz + z, w.seed ^ y));
+                    for (let j = 0; j < 4; j++) {
+                        const q = v[j];
+                        p.push(x + ox + q[0], y + q[1], z + oz + q[2]);
+                        const u = j === 1 || j === 2 ? 1 : 0, vv = j >= 2 ? 1 : 0;
+                        uv.push((t * exports.TILE + .5 + u * (exports.TILE - 1)) / (exports.TILE * exports.TILES), (.5 + (1 - vv) * (exports.TILE - 1)) / exports.TILE);
+                        co.push(shade, shade, shade);
+                    }
+                    ind.push(n, n + 1, n + 2, n, n + 2, n + 3);
+                    n += 4;
+                }
+            }
+    return { positions: new Float32Array(p), uv: new Float32Array(uv), colors: new Float32Array(co), indices: new Uint32Array(ind) };
+}
+function atlas() {
+    const c = document.createElement('canvas');
+    c.width = exports.TILE * exports.TILES;
+    c.height = exports.TILE;
+    const ctx = c.getContext('2d');
+    const base = [[119, 153, 76], [133, 101, 67], [137, 99, 67], [126, 139, 143], [222, 193, 130], [125, 88, 54], [171, 128, 76], [76, 125, 74], [77, 139, 163], [255, 255, 255]];
+    for (let t = 0; t < exports.TILES; t++)
+        for (let y = 0; y < 16; y++)
+            for (let x = 0; x < 16; x++) {
+                let rgb = base[t], r = (0, world_js_1.hash)(x + t * 18, y, 12345), delta = Math.floor((r - .5) * 27);
+                if (t === 1 && y < 4 + Math.floor((0, world_js_1.hash)(x, 0, 55) * 3)) {
+                    rgb = base[0];
+                    delta += 5;
+                }
+                if (t === 5)
+                    delta += x % 5 === 0 ? -21 : 7;
+                if (t === 6) {
+                    const ring = Math.max(Math.abs(x - 7.5), Math.abs(y - 7.5));
+                    delta += Math.floor(ring) % 3 === 0 ? -23 : 4;
+                }
+                if (t === 7)
+                    delta += r > .75 ? 18 : -6;
+                if (t === 8)
+                    delta += y % 5 === 0 && (0, world_js_1.hash)(x >> 2, y, 17) > .48 ? 22 : -2;
+                if (t === 3 && r > .86)
+                    delta -= 17;
+                ctx.fillStyle = `rgb(${rgb.map(a => Math.max(0, Math.min(255, a + delta))).join(',')})`;
+                ctx.fillRect(t * 16 + x, y, 1, 1);
+            }
+    return c;
+}
+
+};
+modules["./native.js"]=function(require,module,exports){
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.NativeRenderer = void 0;
+const mesh_js_1 = require("./mesh.js");
+const render_js_1 = require("./render.js");
+function matrix(eye, d, aspect, far) {
+    const z = [-d.x, -d.y, -d.z], l = Math.hypot(z[0], z[2]) || 1, x = [z[2] / l, 0, -z[0] / l], y = [z[1] * x[2], z[2] * x[0] - z[0] * x[2], -z[1] * x[0]], dot = (a) => a[0] * eye.x + a[1] * eye.y + a[2] * eye.z;
+    const v = [x[0], y[0], z[0], 0, x[1], y[1], z[1], 0, x[2], y[2], z[2], 0, -dot(x), -dot(y), -dot(z), 1], f = 1 / Math.tan(70 * Math.PI / 360), near = .07, p = [f / aspect, 0, 0, 0, 0, f, 0, 0, 0, 0, (far + near) / (near - far), -1, 0, 0, 2 * far * near / (near - far), 0], o = new Float32Array(16);
+    for (let c = 0; c < 4; c++)
+        for (let r = 0; r < 4; r++)
+            for (let k = 0; k < 4; k++)
+                o[c * 4 + r] += p[k * 4 + r] * v[c * 4 + k];
+    return o;
+}
+class NativeRenderer {
+    canvas;
+    name = 'WebGL 2 · 離線';
+    g;
+    program;
+    tex;
+    chunks = new Map();
+    line;
+    lineBuffer;
+    loc;
+    constructor(canvas) {
+        this.canvas = canvas;
+        const g = canvas.getContext('webgl2', { antialias: false, alpha: false, powerPreference: 'low-power' });
+        if (!g)
+            throw Error('此裝置無法建立 WebGL 2。請開啟瀏覽器硬體加速。');
+        this.g = g;
+        const compile = (type, s) => { const sh = g.createShader(type); g.shaderSource(sh, s); g.compileShader(sh); if (!g.getShaderParameter(sh, g.COMPILE_STATUS))
+            throw Error(g.getShaderInfoLog(sh) || 'shader'); return sh; };
+        const vs = compile(g.VERTEX_SHADER, `#version 300 es
+ layout(location=0) in vec3 p; layout(location=1) in vec2 uv; layout(location=2) in vec3 color; uniform mat4 vp; uniform vec3 eye; out vec2 vUV; out vec3 vColor; out float dist; void main(){gl_Position=vp*vec4(p,1.);vUV=uv;vColor=color;dist=length(p-eye);}`), fs = compile(g.FRAGMENT_SHADER, `#version 300 es
+ precision mediump float; in vec2 vUV;in vec3 vColor;in float dist;uniform sampler2D tex;uniform vec2 fog;uniform bool outline;out vec4 outColor;void main(){vec3 c=outline?vec3(.12,.19,.19):texture(tex,vUV).rgb*vColor;outColor=vec4(mix(c,vec3(.72,.83,.86),smoothstep(fog.x,fog.y,dist)),1.);}`);
+        const p = g.createProgram();
+        g.attachShader(p, vs);
+        g.attachShader(p, fs);
+        g.linkProgram(p);
+        if (!g.getProgramParameter(p, g.LINK_STATUS))
+            throw Error(g.getProgramInfoLog(p) || 'link');
+        g.deleteShader(vs);
+        g.deleteShader(fs);
+        this.program = p;
+        g.useProgram(p);
+        this.loc = { matrix: g.getUniformLocation(p, 'vp'), eye: g.getUniformLocation(p, 'eye'), fog: g.getUniformLocation(p, 'fog'), outline: g.getUniformLocation(p, 'outline') };
+        this.tex = g.createTexture();
+        g.bindTexture(g.TEXTURE_2D, this.tex);
+        g.texImage2D(g.TEXTURE_2D, 0, g.RGBA, g.RGBA, g.UNSIGNED_BYTE, (0, mesh_js_1.atlas)());
+        for (const param of [g.TEXTURE_MIN_FILTER, g.TEXTURE_MAG_FILTER])
+            g.texParameteri(g.TEXTURE_2D, param, g.NEAREST);
+        g.texParameteri(g.TEXTURE_2D, g.TEXTURE_WRAP_S, g.CLAMP_TO_EDGE);
+        g.texParameteri(g.TEXTURE_2D, g.TEXTURE_WRAP_T, g.CLAMP_TO_EDGE);
+        g.uniform1i(g.getUniformLocation(p, 'tex'), 0);
+        g.enable(g.DEPTH_TEST);
+        g.enable(g.CULL_FACE);
+        g.clearColor(...render_js_1.SKY, 1);
+        this.line = g.createVertexArray();
+        this.lineBuffer = g.createBuffer();
+        g.bindVertexArray(this.line);
+        g.bindBuffer(g.ARRAY_BUFFER, this.lineBuffer);
+        g.enableVertexAttribArray(0);
+        g.vertexAttribPointer(0, 3, g.FLOAT, false, 0, 0);
+        g.bindVertexArray(null);
+    }
+    resize(w, h, r) { this.canvas.width = Math.max(1, Math.round(w * r)); this.canvas.height = Math.max(1, Math.round(h * r)); this.g.viewport(0, 0, this.canvas.width, this.canvas.height); }
+    put(k, m) { this.remove(k); const g = this.g, vao = g.createVertexArray(), buffers = []; g.bindVertexArray(vao); for (const [loc, arr, n] of [[0, m.positions, 3], [1, m.uv, 2], [2, m.colors, 3]]) {
+        const b = g.createBuffer();
+        buffers.push(b);
+        g.bindBuffer(g.ARRAY_BUFFER, b);
+        g.bufferData(g.ARRAY_BUFFER, arr, g.STATIC_DRAW);
+        g.enableVertexAttribArray(loc);
+        g.vertexAttribPointer(loc, n, g.FLOAT, false, 0, 0);
+    } const b = g.createBuffer(); buffers.push(b); g.bindBuffer(g.ELEMENT_ARRAY_BUFFER, b); g.bufferData(g.ELEMENT_ARRAY_BUFFER, m.indices, g.STATIC_DRAW); g.bindVertexArray(null); const bounds = [Infinity, Infinity, Infinity, -Infinity, -Infinity, -Infinity]; for (let i = 0; i < m.positions.length; i += 3)
+        for (let j = 0; j < 3; j++) {
+            const v = m.positions[i + j];
+            bounds[j] = Math.min(bounds[j], v);
+            bounds[j + 3] = Math.max(bounds[j + 3], v);
+        } this.chunks.set(k, { vao, buffers, count: m.indices.length, bounds, bytes: m.positions.byteLength + m.uv.byteLength + m.colors.byteLength + m.indices.byteLength }); }
+    remove(k) { const c = this.chunks.get(k); if (!c)
+        return; for (const b of c.buffers)
+        this.g.deleteBuffer(b); this.g.deleteVertexArray(c.vao); this.chunks.delete(k); }
+    draw(eye, d, h, r) { const g = this.g; g.clear(g.COLOR_BUFFER_BIT | g.DEPTH_BUFFER_BIT); g.useProgram(this.program); const vp = matrix(eye, d, this.canvas.width / this.canvas.height, 200); g.uniformMatrix4fv(this.loc.matrix, false, vp); const planes = []; for (let j = 0; j < 3; j++)
+        for (const sign of [-1, 1])
+            planes.push([vp[3] + sign * vp[j], vp[7] + sign * vp[4 + j], vp[11] + sign * vp[8 + j], vp[15] + sign * vp[12 + j]]); g.uniform3f(this.loc.eye, eye.x, eye.y, eye.z); g.uniform2f(this.loc.fog, Math.max(10, r * 16 - 12), r * 16 + 3); g.uniform1i(this.loc.outline, 0); let calls = 0, triangles = 0, bytes = 0; for (const c of this.chunks.values()) {
+        bytes += c.bytes;
+        if (!c.count || planes.some(p => p[0] * c.bounds[p[0] >= 0 ? 3 : 0] + p[1] * c.bounds[p[1] >= 0 ? 4 : 1] + p[2] * c.bounds[p[2] >= 0 ? 5 : 2] + p[3] < 0))
+            continue;
+        g.bindVertexArray(c.vao);
+        g.drawElements(g.TRIANGLES, c.count, g.UNSIGNED_INT, 0);
+        calls++;
+        triangles += c.count / 3;
+    } if (h) {
+        g.uniform1i(this.loc.outline, 1);
+        g.bindVertexArray(this.line);
+        g.bindBuffer(g.ARRAY_BUFFER, this.lineBuffer);
+        g.bufferData(g.ARRAY_BUFFER, (0, render_js_1.highlight)(h), g.DYNAMIC_DRAW);
+        g.drawArrays(g.LINES, 0, 24);
+        calls++;
+    } g.bindVertexArray(null); return { calls, triangles, bytes }; }
+    dispose() { for (const k of this.chunks.keys())
+        this.remove(k); const g = this.g; g.deleteBuffer(this.lineBuffer); g.deleteVertexArray(this.line); g.deleteTexture(this.tex); g.deleteProgram(this.program); }
+}
+exports.NativeRenderer = NativeRenderer;
+
+};
+modules["./offline.js"]=function(require,module,exports){
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+const native_js_1 = require("./native.js");
+const game_js_1 = require("./game.js");
+(0, game_js_1.start)(canvas => new native_js_1.NativeRenderer(canvas));
+
+};
+modules["./physics.js"]=function(require,module,exports){
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.Player = exports.EYE = exports.BODY = exports.WIDTH = void 0;
+exports.overlaps = overlaps;
+exports.collides = collides;
+exports.ray = ray;
+const world_js_1 = require("./world.js");
+exports.WIDTH = .30, exports.BODY = 1.72, exports.EYE = 1.58;
+function overlaps(p, x, y, z) { return p.x + exports.WIDTH > x && p.x - exports.WIDTH < x + 1 && p.y + exports.BODY > y && p.y < y + 1 && p.z + exports.WIDTH > z && p.z - exports.WIDTH < z + 1; }
+function collides(w, p) { const e = 1e-5; for (let y = Math.floor(p.y + e); y <= Math.floor(p.y + exports.BODY - e); y++)
+    for (let z = Math.floor(p.z - exports.WIDTH + e); z <= Math.floor(p.z + exports.WIDTH - e); z++)
+        for (let x = Math.floor(p.x - exports.WIDTH + e); x <= Math.floor(p.x + exports.WIDTH - e); x++)
+            if ((0, world_js_1.SOLID)(w.get(x, y, z, 3 /* B.Stone */)))
+                return true; return false; }
+class Player {
+    pos = { x: .5, y: 40, z: .5 };
+    vy = 0;
+    grounded = false;
+    yaw = 0;
+    pitch = 0;
+    direction() { const c = Math.cos(this.pitch); return { x: -Math.sin(this.yaw) * c, y: Math.sin(this.pitch), z: -Math.cos(this.yaw) * c }; }
+    eye() { return { ...this.pos, y: this.pos.y + exports.EYE }; }
+    step(w, dt, keys) {
+        const forward = Number(keys.has('KeyW')) - Number(keys.has('KeyS')), right = Number(keys.has('KeyD')) - Number(keys.has('KeyA')), l = Math.hypot(forward, right) || 1, water = w.get(Math.floor(this.pos.x), Math.floor(this.pos.y + .6), Math.floor(this.pos.z)) === 7 /* B.Water */, speed = (water ? 2.8 : keys.has('ShiftLeft') || keys.has('ShiftRight') ? 7.5 : 4.5) / l;
+        const dx = (right * Math.cos(this.yaw) - forward * Math.sin(this.yaw)) * speed * dt, dz = (-right * Math.sin(this.yaw) - forward * Math.cos(this.yaw)) * speed * dt;
+        if (keys.has('Space') && this.grounded) {
+            this.vy = 7.2;
+            this.grounded = false;
+        }
+        if (water && keys.has('Space'))
+            this.vy = Math.min(3.3, this.vy + 18 * dt);
+        else
+            this.vy = Math.max(water ? -2.4 : -28, this.vy - (water ? 5 : 20) * dt);
+        this.move(w, 'x', dx);
+        this.move(w, 'z', dz);
+        const dy = this.vy * dt;
+        this.grounded = false;
+        if (!this.move(w, 'y', dy)) {
+            if (dy < 0)
+                this.grounded = true;
+            this.vy = 0;
+        }
+    }
+    move(w, axis, d) { if (!d)
+        return true; const old = this.pos[axis]; this.pos[axis] = old + d; if (!collides(w, this.pos))
+        return true; let lo = 0, hi = 1; for (let i = 0; i < 10; i++) {
+        const mid = (lo + hi) / 2;
+        this.pos[axis] = old + d * mid;
+        if (collides(w, this.pos))
+            hi = mid;
+        else
+            lo = mid;
+    } this.pos[axis] = old + d * lo; return false; }
+}
+exports.Player = Player;
+function ray(w, o, d, max = 6) { let x = Math.floor(o.x), y = Math.floor(o.y), z = Math.floor(o.z), t = 0; const sx = Math.sign(d.x), sy = Math.sign(d.y), sz = Math.sign(d.z), ax = d.x ? Math.abs(1 / d.x) : Infinity, ay = d.y ? Math.abs(1 / d.y) : Infinity, az = d.z ? Math.abs(1 / d.z) : Infinity; let tx = d.x ? ((sx > 0 ? x + 1 - o.x : o.x - x) * ax) : Infinity, ty = d.y ? ((sy > 0 ? y + 1 - o.y : o.y - y) * ay) : Infinity, tz = d.z ? ((sz > 0 ? z + 1 - o.z : o.z - z) * az) : Infinity; let prev = { x, y, z }; for (let i = 0; i < 64 && t <= max; i++) {
+    const b = w.get(x, y, z);
+    if ((0, world_js_1.SOLID)(b))
+        return { x, y, z, prev, block: b };
+    prev = { x, y, z };
+    if (tx <= ty && tx <= tz) {
+        x += sx;
+        t = tx;
+        tx += ax;
+    }
+    else if (ty <= tz) {
+        y += sy;
+        t = ty;
+        ty += ay;
+    }
+    else {
+        z += sz;
+        t = tz;
+        tz += az;
+    }
+} return null; }
+
+};
+modules["./render.js"]=function(require,module,exports){
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.SKY = void 0;
+exports.highlight = highlight;
+exports.SKY = [.72, .83, .86];
+function highlight(h) { const a = -.003, b = 1.003, p = [a, a, a, b, a, a, b, b, a, a, b, a, a, a, b, b, a, b, b, b, b, a, b, b], edges = [0, 1, 1, 2, 2, 3, 3, 0, 4, 5, 5, 6, 6, 7, 7, 4, 0, 4, 1, 5, 2, 6, 3, 7]; return new Float32Array(edges.flatMap(i => [p[3 * i] + h.x, p[3 * i + 1] + h.y, p[3 * i + 2] + h.z])); }
+
+};
+modules["./world.js"]=function(require,module,exports){
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.World = exports.index = exports.chunkCoord = exports.key = exports.SOLID = exports.PALETTE = exports.NAMES = exports.SEA = exports.HEIGHT = exports.SIZE = void 0;
+exports.seedOf = seedOf;
+exports.hash = hash;
+exports.elevation = elevation;
+exports.generate = generate;
+exports.SIZE = 16, exports.HEIGHT = 64, exports.SEA = 23;
+exports.NAMES = ['空氣', '草地', '泥土', '石頭', '沙子', '木材', '樹葉', '水'];
+exports.PALETTE = ['#000', '#72964e', '#8c654b', '#858c91', '#e2c78a', '#9d7350', '#537e4c', '#548ba6'];
+const SOLID = (b) => b !== 0 /* B.Air */ && b !== 7 /* B.Water */;
+exports.SOLID = SOLID;
+const key = (x, z) => `${x},${z}`;
+exports.key = key;
+const chunkCoord = (x) => Math.floor(x / exports.SIZE);
+exports.chunkCoord = chunkCoord;
+const index = (x, y, z) => x + exports.SIZE * (z + exports.SIZE * y);
+exports.index = index;
+function seedOf(s) { let h = 2166136261; for (let i = 0; i < s.length; i++)
+    h = Math.imul(h ^ s.charCodeAt(i), 16777619); return h >>> 0; }
+function hash(x, z, seed) { let h = Math.imul(x, 374761393) ^ Math.imul(z, 668265263) ^ seed; h = Math.imul(h ^ (h >>> 13), 1274126177); return ((h ^ (h >>> 16)) >>> 0) / 4294967296; }
+function noise(x, z, s, scale) { x /= scale; z /= scale; let a = Math.floor(x), b = Math.floor(z), u = x - a, v = z - b; u = u * u * (3 - 2 * u); v = v * v * (3 - 2 * v); const p = hash(a, b, s), q = hash(a + 1, b, s), r = hash(a, b + 1, s), t = hash(a + 1, b + 1, s); return (p + (q - p) * u) * (1 - v) + (r + (t - r) * u) * v; }
+function elevation(x, z, s) { return Math.max(10, Math.min(51, Math.floor(10 + noise(x, z, s, 95) * 29 + noise(x, z, s ^ 12345, 30) * 12 + noise(x, z, s ^ 6789, 12) * 5))); }
+function tree(x, z, s) { const h = elevation(x, z, s); return h > exports.SEA + 2 && h < exports.HEIGHT - 8 && hash(x, z, s ^ 0x9e3779b9) > .982 && noise(x, z, s ^ 1793, 48) > .37; }
+function generate(cx, cz, s) {
+    const blocks = new Uint8Array(exports.SIZE * exports.SIZE * exports.HEIGHT), ox = cx * exports.SIZE, oz = cz * exports.SIZE;
+    for (let z = 0; z < exports.SIZE; z++)
+        for (let x = 0; x < exports.SIZE; x++) {
+            const h = elevation(ox + x, oz + z, s), beach = h <= exports.SEA + 1;
+            for (let y = 0; y <= Math.max(h, exports.SEA); y++)
+                blocks[(0, exports.index)(x, y, z)] = y > h ? 7 /* B.Water */ : y === 0 || y < h - 3 ? 3 /* B.Stone */ : beach ? 4 /* B.Sand */ : y === h ? 1 /* B.Grass */ : 2 /* B.Dirt */;
+        }
+    const set = (x, y, z, b) => { if (x >= 0 && x < exports.SIZE && z >= 0 && z < exports.SIZE && y < exports.HEIGHT && y >= 0 && (blocks[(0, exports.index)(x, y, z)] === 0 /* B.Air */ || b === 5 /* B.Wood */))
+        blocks[(0, exports.index)(x, y, z)] = b; };
+    for (let z = -2; z < exports.SIZE + 2; z++)
+        for (let x = -2; x < exports.SIZE + 2; x++) {
+            if (!tree(x + ox, z + oz, s))
+                continue;
+            const h = elevation(x + ox, z + oz, s), t = 4 + Math.floor(hash(x + ox, z + oz, s ^ 87) * 2);
+            for (let y = 1; y <= t; y++)
+                set(x, h + y, z, 5 /* B.Wood */);
+            for (let dy = -2; dy <= 1; dy++) {
+                const r = dy === 1 ? 1 : 2;
+                for (let dz = -r; dz <= r; dz++)
+                    for (let dx = -r; dx <= r; dx++)
+                        if (Math.abs(dx) + Math.abs(dz) <= r + 1)
+                            set(x + dx, h + t + dy, z + dz, 6 /* B.Leaves */);
+            }
+        }
+    return { cx, cz, blocks };
+}
+class World {
+    seed;
+    chunks = new Map();
+    edits = new Map();
+    dirty = new Set();
+    editCount = 0;
+    changes = 0;
+    editLimit = 24000;
+    constructor(seed) {
+        this.seed = seed;
+    }
+    get(x, y, z, missing = 0) { if (y < 0)
+        return 3 /* B.Stone */; if (y >= exports.HEIGHT)
+        return 0 /* B.Air */; const cx = (0, exports.chunkCoord)(x), cz = (0, exports.chunkCoord)(z), c = this.chunks.get((0, exports.key)(cx, cz)); return c ? c.blocks[(0, exports.index)(x - cx * exports.SIZE, y, z - cz * exports.SIZE)] : missing; }
+    load(cx, cz) { const k = (0, exports.key)(cx, cz); if (this.chunks.has(k))
+        return; const c = generate(cx, cz, this.seed); this.edits.get(k)?.forEach((b, i) => c.blocks[i] = b); this.chunks.set(k, c); this.mark(cx, cz); }
+    unload(cx, cz) { const k = (0, exports.key)(cx, cz); this.chunks.delete(k); this.dirty.delete(k); this.mark(cx, cz); }
+    mark(cx, cz) { for (const [dx, dz] of [[0, 0], [1, 0], [-1, 0], [0, 1], [0, -1]]) {
+        const k = (0, exports.key)(cx + dx, cz + dz);
+        if (this.chunks.has(k))
+            this.dirty.add(k);
+    } }
+    set(x, y, z, b) { if (y <= 0 || y >= exports.HEIGHT || b < 0 || b > 7)
+        return false; const cx = (0, exports.chunkCoord)(x), cz = (0, exports.chunkCoord)(z), k = (0, exports.key)(cx, cz), c = this.chunks.get(k); if (!c)
+        return false; const lx = x - cx * exports.SIZE, lz = z - cz * exports.SIZE, i = (0, exports.index)(lx, y, lz); if (c.blocks[i] === b)
+        return false; let e = this.edits.get(k); if (!e?.has(i) && this.editCount >= this.editLimit)
+        return false; if (!e) {
+        e = new Map();
+        this.edits.set(k, e);
+    } if (!e.has(i))
+        this.editCount++; e.set(i, b); this.changes++; c.blocks[i] = b; this.dirty.add(k); for (const [yes, dx, dz] of [[lx === 0, -1, 0], [lx === 15, 1, 0], [lz === 0, 0, -1], [lz === 15, 0, 1]]) {
+        const n = (0, exports.key)(cx + dx, cz + dz);
+        if (yes && this.chunks.has(n))
+            this.dirty.add(n);
+    } return true; }
+    target(x, z, r) { const cx = (0, exports.chunkCoord)(x), cz = (0, exports.chunkCoord)(z), out = []; for (let dz = -r; dz <= r; dz++)
+        for (let dx = -r; dx <= r; dx++)
+            out.push({ cx: cx + dx, cz: cz + dz, d: dx * dx + dz * dz }); return out.sort((a, b) => a.d - b.d); }
+}
+exports.World = World;
+
+};
+function require(id){if(cache[id])return cache[id].exports;const m={exports:{}};cache[id]=m;modules[id](require,m,m.exports);return m.exports;}require('./offline.js');})();</script></body></html>
